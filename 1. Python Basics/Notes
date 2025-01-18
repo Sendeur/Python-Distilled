@@ -1,0 +1,17 @@
+In REPL (read-eval-print loop) _ holds the result of the last operation.
+
+Python source files are UTF-8 encoded text files.
+
+Can have types associated to variables
+    x: int = 10
+however, they are ignored (can be checked by 3rd party tooling)...
+    x: str = 10
+
+A value is considered False if it is "False", None, numerically zero or empty. Otherwise, it's considered True.
+
+Walrus operator (:=) can be used to assign to a variable. The result of the expression is the result of the RHS assignment.
+    (x := 5 + 1) > 5    # True
+
+Strings are stored as Unicode text.
+
+
