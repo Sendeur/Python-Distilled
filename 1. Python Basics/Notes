@@ -21,4 +21,24 @@ __name__ contains the name of the enclosing module (see basic_module.py):
     * __main__, if script called in a top-level environment 
     * <script>, if script is imported via "import <script>"
 
+CPython performs String Interning on constants such as Function Names, Variable Names, String Literals, etc.
+Following is the snippet from codeobject.c that suggests that when a new PyCode object is created the interpreter is interning all the compile-time constants,
+names, and literals.
+CPython also interns thee Strings which keys of any dictionary object. Upon putting an item in the dictionary the interpreter String Interning on the key against which item is stored.
+CPython interns all these attribute names, so as to make lookup blazing fast.
+Only compile-time strings are interned.
+Only strings containing letters, numbers and underscores are interned. "hello world" is NOT interned.
+    x = "hello world"
+    y = "hello world"
+    x is y  # False
+
+Use sys.intern() to intern these:
+    x = sys.intern("hello world")
+    y = sys.intern("hello world")
+    x is y  # True
+
+When importing module, search:
+1) in current directory
+2) in PYTHONPATH
+3) in site-packages
 
