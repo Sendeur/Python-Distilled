@@ -14,4 +14,11 @@ Walrus operator (:=) can be used to assign to a variable. The result of the expr
 
 Strings are stored as Unicode text.
 
+Python's default arguments are evaluated once when the function is defined, not each time the function is called (like it is in say, Ruby).
+This means that if you use a mutable default argument and mutate it, you will and have mutated that object for all future calls to the function as well.
+
+__name__ contains the name of the enclosing module (see basic_module.py):
+    * __main__, if script called in a top-level environment 
+    * <script>, if script is imported via "import <script>"
+
 
