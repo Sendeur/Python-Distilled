@@ -42,3 +42,10 @@ When importing module, search:
 2) in PYTHONPATH
 3) in site-packages
 
+Sequences can be:
+- immutable -> string, tuple
+- mutable
+
+Mutable sequences support index/slice assignment
+    seq[1] = 10
+    seq[1:3] = [ 1, 2, 3, 4, 5 ] # with extension
