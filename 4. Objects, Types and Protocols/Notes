@@ -1,0 +1,29 @@
+All objects in Python are first-class objects. They can be returned from functions, assigned to names etc.
+    e.g. can assign Classes, Functions, Exceptions etc. into a dictionary
+
+You can make deep/shallow copies of any objects:
+- copy.copy() can be used to make shallow copies.
+- copy.deepcopy() can be used to make deep copies.
+
+
+OBJECT PROTOCOL
+- __new__(cls, [args, kwargs])
+- __init__(self, [args])
+- __del__(self)
+- __repr__(self)
+
+    x = MyClass.__new__(MyClass, args)
+    if isinstance(x, MyClass):
+        x.__init__(args)
+
+NUMBER PROTOCOL
+Operations invoke "magic" functions behind the curtains:
+- x * y  is the same as  x.__mul__(y)
+- x + y  is the same as  x.__add__(y)
+    if x.__add__(y) returns NotImplemented, the interpreter tries y.__add__(y) or x.__radd__(y)
+
+- x += 1 uses the x.__iadd__(1)
+
+    x = x + 1 changes the identity of the object
+    x += 1 does NOT change identity, but modifies the object at same address by creating a new one "in-place"
+
