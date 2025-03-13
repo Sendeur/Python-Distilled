@@ -47,11 +47,41 @@ Python never performs implicit type conversions.
 CONTAINER PROTOCOL
 - __len__(self)
 - __getitem__(self, key)
-    self[key]
+      self[key]
 - __setitem__(self, key, value)
-    self[key] = value
+      self[key] = value
 - __delitem__(self, key)
-    del self[key]
+      del self[key]
 - __contains__(self, obj)
-    obj in self
+      obj in self
+
+ITERATION PROTOCOL (Object supports iteration)
+- __iter__(self),     returns iterator
+- __reversed__(self), returns reversed iterator
+
+Iterator object must implement __next__(self).
+  returns next object OR raises StopIteration
+
+ATTRIBUTE PROTOCOL
+- __getattribute__(self, name)
+      self.name
+- __getattr__(self, name)      
+      called if no __getattribute__
+      by default, raises AttributeError
+- __setattr__(self, name, value)
+      self.name = value
+- __delattr__(self, name)
+      del self.name
+
+FUNCTION PROTOCOL
+- __call__(self, arg1, arg2, ...)
+      obj(arg1, arg2, ...)
+
+CONTEXT MANAGER PROTOCOL
+- __enter__(self)
+      returns object which is placed in the var inside "with context as var" statement
+- __exit__(self, type, value, tb)
+      returns True, to clear any exceptions
+      returns False, if exceptions need to be handled
+
 
